@@ -1012,7 +1012,7 @@ if Code.ensure_loaded?(Postgrex) do
       do: [column_type(type, opts), "[]"]
 
     defp column_type(type, _opts) when type in ~w(time utc_datetime naive_datetime)a,
-      do: [ecto_to_db(type), "(0)"]
+      do: [ecto_to_db(type), ""]
 
     defp column_type(type, opts) when type in ~w(time_usec utc_datetime_usec naive_datetime_usec)a do
       precision = Keyword.get(opts, :precision)
